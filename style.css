@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+.wrapper
+{
+   
+    height: 100vh;
+    overflow-x: hidden; /* this allows the image to not scroll down along x-direction in a page */
+    overflow-y: auto;
+    perspective: 10px;   /* to generate perspective(on it) or view of user*/
+ 
+}
+
+.container /* we want other images to absolut hence we need to make container non-static as relative position*/
+{
+    
+   position: relative;
+   display: flex; /* used for elements*/
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d; /* if we skip this line then no 3d movements ocurrs*/
+    height: 100%;
+    z-index: -1;/* used for overlapping which image will come first then second and so on*/
+
+}
+.background
+{
+    transform: translateZ(-40px) scale(5); /* image durr chalegi,image goes far , scale allows to increase size of image and makes it a distance far -40 to uncle image*/
+
+}
+.foreground
+{
+    transform: translateZ(-20px) scale(3); /* this sets some speed for image of uncle thus all the items have diferent speed now*/
+}
+.background,.foreground
+{
+    position: absolute; /* this allows to set image according to .container class*/
+    height: 100%;
+    width: 100%;
+    z-index: -1; /* this allows the third text to come up before forehead image*/
+    object-fit: cover; /* imp- " pura width cover kar legi image " it fits the image in container and makes it responsive*/
+}
+h1{
+   position: absolute; 
+   font-size: 10rem;
+   color: white;
+   text-shadow: 0 0 10px rgba(0,0,0,0.3);
+   top: 5rem;
+   left: 50%;/* so that the write up could be shift to its left*/
+   transform: translateX(-50%);
+   letter-spacing: 4px;
+}
+
+section
+{
+    background-color: rgb(45,45,45);
+    color: white;
+    padding: 5rem 0;
+}
+
+.secHeading
+{
+font-size: 3rem;
+padding: 0 10rem;
+}
+
+.text
+{
+  font-size: 1.5rem;  
+  padding: 0 10rem;
+  margin: 5rem 0;
+}
+
+.bg{
+ position: relative;
+ width: 100%;
+ height: 300px;
+ background-attachment: fixed;/* fix the background hence rest other element can move normally*/
+ background-size: cover; /* acts like object cover(fits)*/
+background-position: center;
+}
+
+.bg1 /* this is a class2 which is unique for all the images*/
+{
+    background-image: url(parallaxPractice/sport-1.jpg);/* value of write up will come above it as it acts like a division also*/
+}
+.bg2
+{
+    background-image: url(parallaxPractice/sport-2.jpg);
+}
+.bg3
+{
+    background-image: url(parallaxPractice/sport-3.jpg);
+}
+.descrip
+{
+  position: absolute;
+  background-color: white;
+  padding: 0.5 rem,2.5rem;
+  top: 50%;
+  left: 50%;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transform: translateX(-50%) translateX(-50%);
+}
